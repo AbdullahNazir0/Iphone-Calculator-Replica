@@ -1,0 +1,77 @@
+*.iml
+.gradle
+/local.properties
+/.idea/caches
+/.idea/libraries
+/.idea/modules.xml
+/.idea/workspace.xml
+/.idea/navEditor.xml
+/.idea/assetWizardSettings.xml
+.DS_Store
+/build
+/captures
+.externalNativeBuild
+.cxx
+local.properties
+
+# Built application files
+*.apk
+*.ap_
+
+# Java class files
+*.class
+
+# Gradle files
+.gradle/
+build/
+*/build/
+*/bin/
+
+# Local configuration file (sdk path, etc)
+local.properties
+
+# Android Studio captures
+captures/
+
+# External native build folder generated in Android Studio 2.2 and later
+.externalNativeBuild/
+
+# IntelliJ IDEA
+.idea/
+*.iml
+
+# Gradle files
+.gradle/
+build/
+*/build/
+
+# Misc
+*.log
+*.hprof
+
+# Generated files
+generated/
+gen/
+bin/
+out/
+output/
+
+# Keystore files
+*.jks
+*.keystore
+
+# Android specific files
+*.so
+*.dSYM
+*.h
+*.log
+
+# Google Services (JSON & plist files)
+google-services.json
+GoogleService-Info.plist
+
+# Mac OS X files
+.DS_Store
+
+# Windows thumbnail cache files
+Thumbs.db
