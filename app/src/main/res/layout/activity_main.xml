@@ -19,7 +19,6 @@
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:layout_weight="3"
-            android:text="0"
             android:textSize="80sp"
             android:textColor="@color/white"
             android:gravity="bottom|right"
@@ -243,7 +242,7 @@
                 android:textColor="@color/white">
             </Button>
             <Button
-                android:id="@+id/btn."
+                android:id="@+id/btnpoint"
                 android:layout_height="match_parent"
                 android:layout_width="0dp"
                 android:layout_weight="1"
