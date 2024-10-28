@@ -1,5 +1,6 @@
 package com.example.iphonecalculatorreplica;
 
+import android.content.pm.ActivityInfo;
 import android.content.res.Configuration;
 import android.graphics.Typeface;
 import android.os.Bundle;
@@ -17,17 +18,16 @@ import androidx.core.view.WindowInsetsCompat;
 public class MainActivity extends AppCompatActivity {
 
     float num1, num2;
+    boolean degrad = true; // true for degree, false for radian
     boolean plus = false, minus = false, multiply = false, divide = false, percent = false;
+    boolean frac = false, xroot = false;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
         EdgeToEdge.enable(this);
-        if(getResources().getConfiguration().orientation == Configuration.ORIENTATION_PORTRAIT) {
-            setContentView(R.layout.activity_main);
-        } else {
-            setContentView(R.layout.activity_main_landscape);
-        }
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -> {
             Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
@@ -193,7 +193,7 @@ public class MainActivity extends AppCompatActivity {
                     et.setText("-");
                     return;
                 }
-                if(et.getText().toString() == "-"){
+                if(et.getText().toString().equals("-")){
                     return;
                 }
                 num1 = Float.parseFloat(et.getText() + "");
@@ -266,12 +266,22 @@ public class MainActivity extends AppCompatActivity {
                 } else if(divide) {
                     if(num2 == 0) {
                         et.setText("Error");
+                        return;
                     }
                     et.setText(num1 / num2 + "");
                     divide = false;
                 } else if(percent) {
                     et.setText(num1 / num2 * 100 + "");
                     percent = false;
+                } else if(frac) {
+                    if(num2 == 0) {
+                        et.setText("Error");
+                        return;
+                    }
+                    et.setText(num1 / num2 + "");
+                    divide = false;
+                } else if(xroot) {
+                    et.setText(Math.pow(Math.E, Math.log(num2)/num1) + "");
                 } else {
                     return;
                 }
@@ -286,8 +296,235 @@ public class MainActivity extends AppCompatActivity {
                 multiply = false;
                 divide = false;
                 percent = false;
+                frac = false;
+                xroot = false;
             }
         });
 
+        btnparenl.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                et.setText(et.getText() + "(");
+            }
+        });;
+        btnparenr.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                et.setText(et.getText() + ")");
+            }
+        });;
+        btnmc.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                
+            }
+        });;
+        btnmplus.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+            }
+        });;
+        btnmminus.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+            }
+        });;
+        btnmr.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+            }
+        });;
+        btn2nd.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+            }
+        });;
+        btnsquare.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                num1 = Float.parseFloat(et.getText() + "");
+                et.setText(num1 * num1 + "");
+            }
+        });;
+        btncube.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                num1 = Float.parseFloat(et.getText() + "");
+                et.setText(num1 * num1 * num1 + "");
+            }
+        });;
+        btnpower.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                num1 = Float.parseFloat(et.getText() + "");
+                et.setText(Math.pow(num1, num2) + "");
+            }
+        });;
+        btnexponenty.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                num1 = Float.parseFloat(et.getText().toString());
+                et.setText(Math.exp(num1) + "");
+            }
+        });;
+        btn10exponent.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                num1 = Float.parseFloat(et.getText().toString());
+                et.setText(Math.expm1(num1) + "");
+            }
+        });;
+        btnfrac.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if(et.getText().toString().isEmpty() || et.getText().toString().equals("-")){
+                    return;
+                }
+                num1 = Float.parseFloat(et.getText() + "");
+                divide = true;
+                et.setText("");
+            }
+        });;
+        btnsqroot.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                num1 = Float.parseFloat(et.getText().toString());
+                et.setText(Math.sqrt(num1) + "");
+            }
+        });;
+        btncuberoot.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                num1 = Float.parseFloat(et.getText().toString());
+                et.setText(Math.cbrt(num1) + "");
+            }
+        });;
+        btnyroot.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if(et.getText().toString().isEmpty() || et.getText().toString().equals("-")){
+                    return;
+                }
+                num1 = Float.parseFloat(et.getText() + "");
+                divide = true;
+                et.setText("");
+                xroot = true;
+            }
+        });;
+        btnln.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                num1 = Float.parseFloat(et.getText().toString());
+                et.setText(Math.log(num1) + "");
+            }
+        });;
+        btn10log.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                num1 = Float.parseFloat(et.getText().toString());
+                et.setText(Math.log10(num1) + "");
+            }
+        });;
+        btnfactorial.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                num1 = Float.parseFloat(et.getText().toString());
+                float res = 1;
+                for (float i = num1; i > 0; i--) {
+                    res *= i;
+                }
+                et.setText(res + "");
+            }
+        });;
+        btnsin.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                num1 = Float.parseFloat(et.getText().toString());
+                et.setText(Math.sin(num1) + "");
+            }
+        });;
+        btncos.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                num1 = Float.parseFloat(et.getText().toString());
+                et.setText(Math.cos(num1) + "");
+            }
+        });;
+        btntan.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                num1 = Float.parseFloat(et.getText().toString());
+                et.setText(Math.tan(num1) + "");
+            }
+        });;
+        btnexponent.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                String prev = et.getText() + "";
+                if(prev.isEmpty()) {
+                    et.setText(Math.E + "");
+                    return;
+                }
+                num1 = Float.parseFloat(prev);
+                et.setText(num1 * Math.E + "");
+            }
+        });;
+        btnEE.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+            }
+        });;
+        btnswitch.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
+            }
+        });
+        btnsinh.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                num1 = Float.parseFloat(et.getText().toString());
+                et.setText(Math.sinh(num1) + "");
+            }
+        });;
+        btncosh.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                num1 = Float.parseFloat(et.getText().toString());
+                et.setText(Math.cosh(num1) + "");
+            }
+        });;
+        btntanh.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                num1 = Float.parseFloat(et.getText().toString());
+                et.setText(Math.tanh(num1) + "");
+            }
+        });;
+        btnpi.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                String prev = et.getText() + "";
+                if(prev.isEmpty()) {
+                    et.setText(Math.PI + "");
+                    return;
+                }
+                num1 = Float.parseFloat(prev);
+                et.setText(num1 * (float) Math.PI + "");
+            }
+        });;
+        btndegrad.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                degrad = !degrad;
+            }
+        });;
+        btnrand.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                num1 = Float.parseFloat(et.getText().toString());
+                et.setText(num1 * (float) Math.random() + "");
+            }
+        });;
     }
 }
