@@ -306,74 +306,94 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View view) {
                 et.setText(et.getText() + "(");
             }
-        });;
+        });
         btnparenr.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 et.setText(et.getText() + ")");
             }
-        });;
+        });
         btnmc.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                
+
             }
-        });;
+        });
         btnmplus.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
             }
-        });;
+        });
         btnmminus.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
             }
-        });;
+        });
         btnmr.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
             }
-        });;
+        });
         btn2nd.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
             }
-        });;
+        });
         btnsquare.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                num1 = Float.parseFloat(et.getText() + "");
+                String prev = et.getText() + "";
+                if(prev.isEmpty()) {
+                    return;
+                }
+                num1 = Float.parseFloat(prev);
                 et.setText(num1 * num1 + "");
             }
-        });;
+        });
         btncube.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                num1 = Float.parseFloat(et.getText() + "");
+                String prev = et.getText() + "";
+                if(prev.isEmpty()) {
+                    return;
+                }
+                num1 = Float.parseFloat(prev);
                 et.setText(num1 * num1 * num1 + "");
             }
-        });;
+        });
         btnpower.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                num1 = Float.parseFloat(et.getText() + "");
+                String prev = et.getText() + "";
+                if(prev.isEmpty()) {
+                    return;
+                }
+                num1 = Float.parseFloat(prev);
                 et.setText(Math.pow(num1, num2) + "");
             }
-        });;
+        });
         btnexponenty.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                num1 = Float.parseFloat(et.getText().toString());
+                String prev = et.getText() + "";
+                if(prev.isEmpty()) {
+                    return;
+                }
+                num1 = Float.parseFloat(prev);
                 et.setText(Math.exp(num1) + "");
             }
-        });;
+        });
         btn10exponent.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                num1 = Float.parseFloat(et.getText().toString());
+                String prev = et.getText() + "";
+                if(prev.isEmpty()) {
+                    return;
+                }
+                num1 = Float.parseFloat(prev);
                 et.setText(Math.expm1(num1) + "");
             }
-        });;
+        });
         btnfrac.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -384,21 +404,29 @@ public class MainActivity extends AppCompatActivity {
                 divide = true;
                 et.setText("");
             }
-        });;
+        });
         btnsqroot.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                num1 = Float.parseFloat(et.getText().toString());
+                String prev = et.getText() + "";
+                if(prev.isEmpty()) {
+                    return;
+                }
+                num1 = Float.parseFloat(prev);
                 et.setText(Math.sqrt(num1) + "");
             }
-        });;
+        });
         btncuberoot.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                num1 = Float.parseFloat(et.getText().toString());
+                String prev = et.getText() + "";
+                if(prev.isEmpty()) {
+                    return;
+                }
+                num1 = Float.parseFloat(prev);
                 et.setText(Math.cbrt(num1) + "");
             }
-        });;
+        });
         btnyroot.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -410,53 +438,77 @@ public class MainActivity extends AppCompatActivity {
                 et.setText("");
                 xroot = true;
             }
-        });;
+        });
         btnln.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                num1 = Float.parseFloat(et.getText().toString());
+                String prev = et.getText() + "";
+                if(prev.isEmpty()) {
+                    return;
+                }
+                num1 = Float.parseFloat(prev);
                 et.setText(Math.log(num1) + "");
             }
-        });;
+        });
         btn10log.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                num1 = Float.parseFloat(et.getText().toString());
+                String prev = et.getText() + "";
+                if(prev.isEmpty()) {
+                    return;
+                }
+                num1 = Float.parseFloat(prev);
                 et.setText(Math.log10(num1) + "");
             }
-        });;
+        });
         btnfactorial.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                num1 = Float.parseFloat(et.getText().toString());
+                String prev = et.getText() + "";
+                if(prev.isEmpty()) {
+                    return;
+                }
+                num1 = Float.parseFloat(prev);
                 float res = 1;
                 for (float i = num1; i > 0; i--) {
                     res *= i;
                 }
                 et.setText(res + "");
             }
-        });;
+        });
         btnsin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                num1 = Float.parseFloat(et.getText().toString());
+                String prev = et.getText() + "";
+                if(prev.isEmpty()) {
+                    return;
+                }
+                num1 = Float.parseFloat(prev);
                 et.setText(Math.sin(num1) + "");
             }
-        });;
+        });
         btncos.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                num1 = Float.parseFloat(et.getText().toString());
+                String prev = et.getText() + "";
+                if(prev.isEmpty()) {
+                    return;
+                }
+                num1 = Float.parseFloat(prev);
                 et.setText(Math.cos(num1) + "");
             }
-        });;
+        });
         btntan.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                num1 = Float.parseFloat(et.getText().toString());
+                String prev = et.getText() + "";
+                if(prev.isEmpty()) {
+                    return;
+                }
+                num1 = Float.parseFloat(prev);
                 et.setText(Math.tan(num1) + "");
             }
-        });;
+        });
         btnexponent.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -468,12 +520,12 @@ public class MainActivity extends AppCompatActivity {
                 num1 = Float.parseFloat(prev);
                 et.setText(num1 * Math.E + "");
             }
-        });;
+        });
         btnEE.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
             }
-        });;
+        });
         btnswitch.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -483,24 +535,36 @@ public class MainActivity extends AppCompatActivity {
         btnsinh.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                num1 = Float.parseFloat(et.getText().toString());
+                String prev = et.getText() + "";
+                if(prev.isEmpty()) {
+                    return;
+                }
+                num1 = Float.parseFloat(prev);
                 et.setText(Math.sinh(num1) + "");
             }
-        });;
+        });
         btncosh.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                num1 = Float.parseFloat(et.getText().toString());
+                String prev = et.getText() + "";
+                if(prev.isEmpty()) {
+                    return;
+                }
+                num1 = Float.parseFloat(prev);
                 et.setText(Math.cosh(num1) + "");
             }
-        });;
+        });
         btntanh.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                num1 = Float.parseFloat(et.getText().toString());
+                String prev = et.getText() + "";
+                if(prev.isEmpty()) {
+                    return;
+                }
+                num1 = Float.parseFloat(prev);
                 et.setText(Math.tanh(num1) + "");
             }
-        });;
+        });
         btnpi.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -512,19 +576,24 @@ public class MainActivity extends AppCompatActivity {
                 num1 = Float.parseFloat(prev);
                 et.setText(num1 * (float) Math.PI + "");
             }
-        });;
+        });
         btndegrad.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 degrad = !degrad;
             }
-        });;
+        });
         btnrand.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                num1 = Float.parseFloat(et.getText().toString());
+                String prev = et.getText() + "";
+                if(prev.isEmpty()) {
+                    et.setText((float) Math.random() + "");
+                    return;
+                }
+                num1 = Float.parseFloat(prev);
                 et.setText(num1 * (float) Math.random() + "");
             }
-        });;
+        });
     }
 }
